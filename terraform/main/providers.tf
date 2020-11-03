@@ -3,4 +3,6 @@
 
 provider "aws" {
   region = var.region
+  profile = var.profile
+  shared_credentials_file = file(var.aws_secret)
 }

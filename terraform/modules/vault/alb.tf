@@ -3,7 +3,7 @@
 
 resource "aws_lb" "alb" {
   name            = replace(var.name_prefix, "_", "-")
-  internal        = true
+  internal        = false
   security_groups = [aws_security_group.alb.id]
   subnets         = var.alb_subnets
 

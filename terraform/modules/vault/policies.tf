@@ -226,6 +226,7 @@ data "aws_iam_policy_document" "vault_ec2_policy" {
     actions = [
       "kms:Encrypt",
       "kms:Decrypt",
+      "kms:TagResource",
       "kms:DescribeKey",
     ]
 

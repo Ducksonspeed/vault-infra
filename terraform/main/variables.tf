@@ -130,3 +130,12 @@ variable "zone_id" {
   type        = string
   description = "ID of the Route 53 zone"
 }
+
+
+variable "profile" {
+    default = null
+}
+
+variable "aws_secret" {
+    default = null
+}

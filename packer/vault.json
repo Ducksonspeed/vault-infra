@@ -4,11 +4,11 @@
         "copyright": "Copyright (c) 2014-2020 Avant, Sean Lingren",
         "vault_version": "1.5.0",
         "vault_version_checksum": "322393aee141c4711fc5f9e1df9f461af3a861e59b8d4d0a85e82477cdbc73a0",
-        "builder_region": "us-west-1",
-        "builder_vpc_id": "vpc-xxxxxxxx",
-        "builder_subnet_id": "subnet-xxxxxxxx",
-        "ami_regions": "us-west-1,us-west-2",
-        "ami_users": "123456789012,456789012345"
+        "builder_region": "eu-west-2",
+        "builder_vpc_id": "vpc-0af5277800c2fc97f",
+        "builder_subnet_id": "subnet-0edab814d8ddcc6a6",
+        "ami_regions": "eu-west-2,eu-west-2",
+        "ami_users": "926265453946,926265453946"
     },
     "builders": [
         {
@@ -37,6 +37,8 @@
             "instance_type": "t3.small",
             "vpc_id": "{{user `builder_vpc_id`}}",
             "subnet_id": "{{user `builder_subnet_id`}}",
+            "ssh_interface": "public_ip",
+            "associate_public_ip_address": true,
             "spot_price": "auto",
             "run_tags": {
                 "Name": "Vault {{user `vault_version`}} Builder",

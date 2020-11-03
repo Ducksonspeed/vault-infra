@@ -11,3 +11,6 @@
 terraform.tfstate
 terraform.tfstate.backup
 terraform.tfstate.*.backup
+terraform/main/ssl
+terraform/main/recovery
+

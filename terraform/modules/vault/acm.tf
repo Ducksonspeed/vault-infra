@@ -18,10 +18,10 @@ resource "aws_acm_certificate" "acm" {
 
 resource "aws_route53_record" "dns_acm_validation" {
   count   = var.alb_certificate_arn == "" ? 1 : 0
-  name    = aws_acm_certificate.acm[0].domain_validation_options[0].resource_record_name
-  type    = aws_acm_certificate.acm[0].domain_validation_options[0].resource_record_type
+  name    = aws_acm_certificate.acm[0].domain_validation_options.*.resource_record_name[0]
+  type    = aws_acm_certificate.acm[0].domain_validation_options.*.resource_record_type[0]
   zone_id = var.zone_id
-  records = [aws_acm_certificate.acm[0].domain_validation_options[0].resource_record_value]
+  records = [aws_acm_certificate.acm[0].domain_validation_options.*.resource_record_value[0]]
   ttl     = 60
 }
 
